@@ -1,6 +1,6 @@
 <template>
   <ul class="todo-main">
-    <TodoItem v-for="(todo,index) in todos" :key="index" :index="index" :todo="todo"/>
+    <TodoItem v-for="(todo,index) in todos" :deleteTodo="deleteTodo" :key="index" :index="index" :todo="todo"/>
   </ul>
 </template>
 
@@ -8,12 +8,8 @@
 import TodoItem from './TodoItem'
 
 export default {
-  props: [
-    'todos'
-  ],
-  data() {
-    return {}
-  },
+  props: ['todos', 'deleteTodo'], // 会成为当前组件对象的属性, 可以在模板中直接访问, 也可以通过this来访问
+
   components: {
     TodoItem
   }

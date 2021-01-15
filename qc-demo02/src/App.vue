@@ -3,7 +3,7 @@
     <div class="todo-container">
       <div class="todo-wrap">
         <todo-header :addTodo="addTodo"/>
-        <todo-list :todos="todos"/>
+        <todo-list :todos="todos" :deleteTodo="deleteTodo"/>
         <todo-footer :todos="todos" :selectAll="selectAll" :deleteCompleteTodos="deleteCompleteTodos"/>
       </div>
     </div>
@@ -38,6 +38,9 @@ export default {
     },
     deleteCompleteTodos() {
       this.todos = this.todos.filter(todo => !todo.check)
+    },
+    deleteTodo(index){
+      this.todos.splice(index,1)
     }
   },
   components: {
